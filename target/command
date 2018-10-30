@@ -1,0 +1,1 @@
+java -Djava.net.preferIPv4Stack=true -jar target/group-membership-service-1.0-SNAPSHOT.jar

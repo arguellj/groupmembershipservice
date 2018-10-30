@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groupmembershipservice.gui.GroupPane">
+   <children>
+       <AnchorPane prefHeight="456.0" prefWidth="600.0">
+           <children>
+               <TitledPane animated="false" layoutX="30.0" prefHeight="200.0" prefWidth="166.0" text="Failures Actions" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="67.0">
+                           <children>
+                               <Button fx:id="killBtn0" layoutX="6.0" layoutY="8.0" mnemonicParsing="false" onAction="#killProcess" text="Kill Process">
+                                   <tooltip>
+                                       <Tooltip text="Produces a node failure. As a consequence, the node leaves the group." />
+                                   </tooltip>
+                               </Button>
+                               <Button fx:id="duplicateViewBtn" layoutX="6.0" layoutY="153.0" mnemonicParsing="false" onAction="#duplicateViewMessage" text="Duplicate Message">
+                                   <tooltip>
+                                       <Tooltip text="Duplicates the next message. It sends twice the message." />
+                                   </tooltip>
+                               </Button>
+                               <Button fx:id="lostViewBtn" layoutX="6.0" layoutY="197.0" mnemonicParsing="false" onAction="#loseViewMessage" text="Lose Message">
+                                   <tooltip>
+                                       <Tooltip text="Loses the next message. It will not send the message." />
+                                   </tooltip>
+                               </Button>
+                               <Button fx:id="leaveBtn0" defaultButton="true" layoutX="34.0" layoutY="387.0" mnemonicParsing="false" onAction="#leaveGroup" text="Leave Group" textFill="#ffffffed" />
+                               <Separator layoutX="3.0" layoutY="370.0" prefHeight="0.0" prefWidth="158.0" />
+                               <Label fx:id="pendingViewDuplicateLabel" layoutX="9.0" layoutY="180.0" text="Pending: 0">
+                                   <font>
+                                       <Font size="9.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="pendingViewLostLabel" layoutX="9.0" layoutY="224.0" text="Pending: 0">
+                                   <font>
+                                       <Font size="9.0" />
+                                   </font>
+                               </Label>
+                        <Label fx:id="pendingConsensusLostLabel" layoutX="11.0" layoutY="348.0" text="Pending: 0">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pendingConsensusDuplicateLabel" layoutX="11.0" layoutY="304.0" text="Pending: 0">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="lostConsensusBtn" layoutX="8.0" layoutY="321.0" mnemonicParsing="false" onAction="#loseConsensusMessage" text="Lose Message">
+                           <tooltip>
+                              <Tooltip text="Loses the next message. It will not send the message." />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="duplicateConsensusBtn" layoutX="8.0" layoutY="277.0" mnemonicParsing="false" onAction="#duplicateConsensusMessage" text="Duplicate Message">
+                           <tooltip>
+                              <Tooltip text="Duplicates the next message. It sends twice the message." />
+                           </tooltip>
+                        </Button>
+                        <Label layoutX="8.0" layoutY="136.0" text="View Failures:" />
+                        <Separator layoutX="3.0" layoutY="127.0" prefHeight="0.0" prefWidth="158.0" />
+                        <Label layoutX="8.0" layoutY="260.0" text="Consensus Failures:" />
+                        <Separator layoutX="3.0" layoutY="250.0" prefHeight="0.0" prefWidth="158.0" />
+                        <Button fx:id="partitionBtn" layoutX="7.0" layoutY="42.0" mnemonicParsing="false" onAction="#createPartition" text="Network Partition">
+                           <tooltip>
+                              <Tooltip text="Blocks messages from member Id specified below. This creates a network partition in the current group." />
+                           </tooltip>
+                        </Button>
+                        <TextArea fx:id="partitionTxt" layoutX="5.0" layoutY="76.0" prefHeight="46.0" prefWidth="154.0">
+                           <tooltip>
+                              <Tooltip text="member Ids to block messages from. The id's must be comma separated (by ';' character)." />
+                           </tooltip>
+                        </TextArea>
+                           </children>
+                       </AnchorPane>
+                   </content>
+               </TitledPane>
+               <ListView fx:id="groupView0" layoutX="200.0" layoutY="23.0" prefHeight="337.0" prefWidth="422.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="23.0">
+                   <tooltip>
+                       <Tooltip text="History of views that this node has witnessed. The last view is the current view of the group." />
+                   </tooltip></ListView>
+               <Label layoutX="173.0" layoutY="6.0" text="View History:" />
+           </children>
+       </AnchorPane>
+   </children>
+</AnchorPane>
